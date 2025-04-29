@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from dotenv import load_dotenv
 import os
+load_dotenv()  # Load environment variables from .env file
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,14 +92,15 @@ WSGI_APPLICATION = 'EsteritaPos.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'joyce2$default',
-        'USER': 'joyce2',
-        'PASSWORD': '33016460d',
-        'HOST': 'joyce2.mysql.pythonanywhere-services.com',
-        'PORT': '3306',
+        'ENGINE': os.getenv('DATABASES_ENGINE', 'django.db.backends.mysql'),
+        'NAME': os.getenv('DATABASES_NAME', 'default_db_name'),
+        'USER': os.getenv('DATABASES_USER', 'default_user'),
+        'PASSWORD': os.getenv('DATABASES_PASSWORD', 'default_password'),
+        'HOST': os.getenv('DATABASES_HOST', 'localhost'),
+        'PORT': os.getenv('DATABASES_PORT', '3306'),
     }
 }
 
