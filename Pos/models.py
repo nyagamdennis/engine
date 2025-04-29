@@ -23,9 +23,9 @@ class StockProperty(models.Model):
     material = models.ForeignKey(Material, on_delete=models.CASCADE)
     color = models.ForeignKey(Color, on_delete=models.CASCADE)
     num_of_rolls = models.IntegerField()
-    size = models.DecimalField(max_digits=1000, decimal_places=2)  # Use DecimalField for precise decimal calculations
-    extrasize = models.DecimalField(max_digits=1000, decimal_places=2, null=True, blank=True)  # Use DecimalField for precise decimal calculations
-    total = models.DecimalField(max_digits=1000, decimal_places=2, default=0.00)  # Use DecimalField for total
+    size = models.DecimalField(max_digits=65, decimal_places=2)  # Use DecimalField for precise decimal calculations
+    extrasize = models.DecimalField(max_digits=65, decimal_places=2, null=True, blank=True)  # Use DecimalField for precise decimal calculations
+    total = models.DecimalField(max_digits=65, decimal_places=2, default=0.00)  # Use DecimalField for total
     date_added = models.DateTimeField(auto_now_add=True)
     date_stocked = models.DateField()
     buying_price = models.IntegerField()
@@ -210,8 +210,8 @@ class WorkInProgress(models.Model):
 class SalesAnalytics(models.Model):
     month = models.IntegerField() # You can also use DateField to group by month.
     year = models.IntegerField()
-    total_sales_amount = models.DecimalField(decimal_places=2, max_digits=115, default=0.00)
-    cash_sales = models.DecimalField(decimal_places=2, max_digits=115, default=0.00)
+    total_sales_amount = models.DecimalField(decimal_places=2, max_digits=65, default=0.00)
+    cash_sales = models.DecimalField(decimal_places=2, max_digits=65, default=0.00)
     number_of_orders = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
