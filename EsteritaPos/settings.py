@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'EsteritaPos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'joyce2$esterita',
+        'NAME': 'joyce2$default',
         'USER': 'joyce2',
         'PASSWORD': '33016460d',
         'HOST': 'joyce2.mysql.pythonanywhere-services.com',
